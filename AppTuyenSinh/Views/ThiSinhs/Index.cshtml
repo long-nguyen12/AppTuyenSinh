@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AppTuyenSinh.Models.ThiSinh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_thisinh.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nganh.Nganh_Ma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThiSinh_HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThiSinh_DienThoai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThiSinh_HoSoDinhKem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Nganh1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Nganh2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Nganh3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nganh.Nganh_Ma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThiSinh_HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThiSinh_DienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThiSinh_HoSoDinhKem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCCD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Nganh1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Nganh2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Nganh3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ThiSinh_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ThiSinh_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ThiSinh_ID })
+        </td>
+    </tr>
+}
+
+</table>

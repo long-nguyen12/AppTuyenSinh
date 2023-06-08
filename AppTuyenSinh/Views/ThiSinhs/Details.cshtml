@@ -1,0 +1,91 @@
+﻿@model AppTuyenSinh.Models.ThiSinh
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_thisinh.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ThiSinh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nganh.Nganh_Ma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nganh.Nganh_Ma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThiSinh_HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThiSinh_HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThiSinh_DienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThiSinh_DienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThiSinh_HoSoDinhKem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThiSinh_HoSoDinhKem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Nganh1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Nganh1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Nganh2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Nganh2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_Nganh3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_Nganh3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ThiSinh_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

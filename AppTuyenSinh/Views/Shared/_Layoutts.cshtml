@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - FICT - HDU</title>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">*@
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="~/Content/img/icon.png" width="40" height="40" style="display: inline-block; margin-right: 10px;"/>
+                <h4 style="display: inline-block; color: #ff6a00;">Nộp hồ sơ xét tuyển đại học trực tuyến</h4>
+            </div>
+            @*@Html.ActionLink("Đăng ký xét tuyển học bạ", "Create", "ThiSinhs", new { area = "" }, new { @class = "navbar-brand", })*@
+            @*<div class="navbar-toggler" aria-controls="navbarSupportedContent" style="border:none!important;"
+                 aria-expanded="false">
+                <img src="~/Content/img/icon.png" width="40" height="40" />
+
+            </div>*@
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <style>
+            .footer .info h3 {
+                font-size: 20px;
+                color: #fbb324;
+                line-height: 1.3;
+            }
+
+            .footer .info ul {
+                list-style-type: none;
+                padding:0;
+            }
+
+                .footer .info ul li {
+                    padding: 2px 0;
+                }
+
+                    .footer .info ul li .fa {
+                        color: #cc9933;
+                    }
+        </style>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="info">
+                            <h3>LIÊN KẾT TUYỂN SINH</h3>
+                            <ul>
+                                <li>
+                                    <i class="bi bi-pin-angle-fill"></i>
+                                    
+                                    <a href="http://tuyensinhcntt.hdu.edu.vn/" title="" style="text-decoration: none;">Thông tin tuyển sinh Khoa CNTT&TT</a>
+                                </li>
+                                <li>
+                                    <i class="bi bi-pin-angle-fill"></i>
+                                    <a href="" title="" style="text-decoration: none;">Tra cứu kết quả truyển sinh</a>
+                                </li>
+                                <li>
+                                    <i class="bi bi-pin-angle-fill"></i>
+                                    <a href="http://tuyensinh.hdu.edu.vn/thong-bao-tuyen-sinh-dai-hoc-chinh-quy-nam-2023-101524.html" title="" style="text-decoration: none;">Download biểu mẫu</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="info">
+                            <h3>KHOA CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG - TRƯỜNG ĐẠI HỌC HỒNG ĐỨC</h3>
+                            <p>
+                                Điện thoại tư vấn: 0977595552
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

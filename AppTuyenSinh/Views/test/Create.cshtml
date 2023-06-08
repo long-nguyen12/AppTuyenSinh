@@ -1,0 +1,166 @@
+﻿@model AppTuyenSinh.Models.ThiSinh
+
+@{
+    ViewBag.Title = "Nộp hồ sơ";
+    Layout = "~/Views/Shared/_Layoutts.cshtml";
+}
+
+<style>
+    .form-group {
+        margin-top: 10px !important;
+    }
+
+    input, select, textarea {
+        border-radius: 0 !important;
+        max-width: 100%;
+    }
+</style>
+
+<main>
+
+    <div class="row" style="margin-top:20px">
+        <div class="col-xl-4">
+
+            @using (Html.BeginForm("Create", "ThiSinhs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <h4>Nộp hồ sơ</h4>
+                <hr />
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.Label("Chọn ngành (*)", null, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-12">
+                            @Html.DropDownList("Nganh_ID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Nganh_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Điện thoại (*)", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.ThiSinh_DienThoai, new
+                            { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số điện thoại", @title = "Thí sinh bắt buộc nhập dữ liệu này" } })
+                            @Html.ValidationMessageFor(model => model.ThiSinh_DienThoai, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Số Căn cước công dân (*)", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.CCCD, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số căn cước công dân" } })
+                            @Html.ValidationMessageFor(model => model.CCCD, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Họ và tên (*)", htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.ThiSinh_HoTen, new
+                            { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập họ và tên", @title = "Thí sinh bắt buộc nhập dữ liệu này" } })
+                            @Html.ValidationMessageFor(model => model.ThiSinh_HoTen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="formFileMultiple" class="form-label">Chọn tệp học bạ và bằng (nếu có)</label>
+                        <div class="col-md-12">
+                            <input class="form-control" id="files" multiple="multiple" name="files" type="file" data-val="true" data-val-required="Vui lòng chọn file học bạ (và bằng - nếu có)" />
+
+                            <span class="field-validation-valid text-danger" data-valmsg-for="files" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label" })
+                            <div class="col-md-12">
+                                <textarea class="form-control" id="DiaChi" name="DiaChi" rows="2"></textarea>
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-12">
+                            <input type="submit" value="Nộp hồ sơ" class="btn btn-primary" />
+                            <a class="btn btn-light" href="#" style=" border-radius: 0 !important;" onclick="ShowInformation()">Xem thông tin đã nhập</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p style="color:red">Lưu ý: Cần nhập đủ số điện thoại và thẻ căn cước khi nhập dữ liệu để có thể xem lại thông tin đã nộp</p>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <div class="col-xl-8" id="GioiThieuKhoa" style="display:block;">
+            <h4>Giới thiệu về các ngành Khoa CNTT&TT</h4>
+            <hr />
+            <div class="row" style="padding-bottom: 20px !important;">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/Content/img/cntt.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/img/sptin.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/img/ttdpt.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8" id="ThongTinCuaThiSinh" style="display:none;">
+            <h4>Dữ liệu đã gửi</h4>
+            <hr />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>TT</th>
+                        <th>Ngày nộp</th>
+                        <th>Dữ liệu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<script>
+    function ShowInformation() {
+        let x = document.getElementById("GioiThieuKhoa");
+        let y = document.getElementById("ThongTinCuaThiSinh");
+        if (x.style.display === "none" && y.style.display === "block") {
+            x.style.display = "block";
+            y.style.display = "none"
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+    }
+
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

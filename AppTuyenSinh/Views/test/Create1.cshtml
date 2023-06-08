@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Create1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create1</h2>
+@using (Html.BeginForm("Create1", "test", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thêm mới</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    
+        <div class="form-group" style="width:500px!important; margin-bottom:6px">
+            <label for="formFileMultiple" class="form-label">Chọn dữ liệu</label>
+            <div class="col-md-10">
+                <input class="form-control" id="files" multiple="multiple" name="files" type="file" data-val="true" data-val-required="Vui lòng chọn file.">
+                <span class="field-validation-valid text-danger" data-valmsg-for="files" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đồng ý" class="btn btn-light" />
+          
+                @*@Html.ActionLink("Hủy bỏ", "Index", new { htmlAttributes = new { lass = "btn btn-light" } })*@
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 text-success">
+            @ViewBag.UploadStatus
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
